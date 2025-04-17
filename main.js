@@ -31,12 +31,15 @@ buttonSection.classList.add('button-section');
 
 let sortByNameButton = document.createElement('button');
 sortByNameButton.setAttribute('id', 'sortByNameButton');
+sortByNameButton.innerText = 'Sort By Name'
 
 let sortByValueButton = document.createElement('button');
 sortByValueButton.setAttribute('id', 'sortByValueButton');
+sortByValueButton.innerText = 'Sort By Value'
 
 let deleteButton = document.createElement('button');
 deleteButton.setAttribute('id', 'deleteButton')
+deleteButton.innerText = 'Delete'
 
 buttonSection.append(sortByNameButton, sortByValueButton, deleteButton)
 listSection.append(nameValueList, buttonSection)
