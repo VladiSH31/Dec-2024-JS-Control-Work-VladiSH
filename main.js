@@ -63,17 +63,42 @@ function parseNameValuePair(input) {
     let match = input.match(/^\s*([a-zA-Z0-9]+)\s*=\s*([a-zA-Z0-9]+)\s*$/);
     return {name: match[1], value: match[2]};
 }
-
+// Подія на кнопку
 addButton.addEventListener('click', () => {
     let input = nameValueInput.value.trim();
     if (validateNameValuePair(input)) {
         let {name, value} = parseNameValuePair(input);
         let option = document.createElement('option');
         option.value = `${name}=${value}`;
-        option.textContent = `${name} = ${value}`;
+        option.innerText = `${name} = ${value}`;
         nameValueList.appendChild(option);
         nameValueInput.value = '';
     } else {
         alert('Invalid Name=Value pair. Please use the format: Name=Value');
+    }
+});
+
+// Додав подію сортування за ім'ям
+
+sortByNameButton.addEventListener('click', () => {
+    let options = Array.from(nameValueList.children);
+    options.sort((a, b) => {
+
+        let nameA = a.value.split('=')[0];
+        let nameB = b.value.split('=')[0];
+        if (nameA > nameB) {
+            return 1;
+        }
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA === nameB) {
+            return 0;
+        }
+    });
+    nameValueList.innerText = '';
+
+    for (let option of options) {
+        nameValueList.appendChild(option)
     }
 });
