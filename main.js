@@ -29,6 +29,7 @@ listSection.classList.add('list-section')
 
 let nameValueList = document.createElement('select');
 nameValueList.setAttribute('id', 'nameValueList');
+nameValueList.setAttribute('multiple', '')
 
 
 let buttonSection = document.createElement('div');
@@ -53,7 +54,26 @@ container.append(title, inputSection, listSection);
 mainDiv.appendChild(container);
 
 // Функції
-
+// Валідація
 function validateNameValuePair(input) {
     return input.match(/^\s*([a-zA-Z0-9]+)\s*=\s*([a-zA-Z0-9]+)\s*$/) !== null;
 }
+// Розбиваю рядок на частини
+function parseNameValuePair(input) {
+    let match = input.match(/^\s*([a-zA-Z0-9]+)\s*=\s*([a-zA-Z0-9]+)\s*$/);
+    return {name: match[1], value: match[2]};
+}
+
+addButton.addEventListener('click', () => {
+    let input = nameValueInput.value.trim();
+    if (validateNameValuePair(input)) {
+        let {name, value} = parseNameValuePair(input);
+        let option = document.createElement('option');
+        option.value = `${name}=${value}`;
+        option.textContent = `${name} = ${value}`;
+        nameValueList.appendChild(option);
+        nameValueInput.value = '';
+    } else {
+        alert('Invalid Name=Value pair. Please use the format: Name=Value');
+    }
+});
