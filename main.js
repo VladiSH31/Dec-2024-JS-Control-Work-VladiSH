@@ -1,4 +1,5 @@
-// Структура
+// Формування структури
+// Головна секція
 
 let mainDiv = document.getElementById('main-div');
 
@@ -8,7 +9,7 @@ container.classList.add('container');
 let title = document.createElement('h1');
 title.innerText = 'Name/Value Pair Sorter';
 
-// Інпут секція
+// Input секція
 
 let inputSection = document.createElement('div');
 inputSection.classList.add('input-section')
@@ -22,7 +23,7 @@ let addButton = document.createElement('button');
 addButton.setAttribute('id', 'addButton');
 addButton.innerText = 'Add';
 
-// Ліст енд баттон секція
+// Ліст енд батон секція
 
 let listSection = document.createElement('div');
 listSection.classList.add('list-section')
@@ -63,7 +64,7 @@ function parseNameValuePair(input) {
     let match = input.match(/^\s*([a-zA-Z0-9]+)\s*=\s*([a-zA-Z0-9]+)\s*$/);
     return {name: match[1], value: match[2]};
 }
-// Подія на кнопку
+// Подія на кнопку додавання
 addButton.addEventListener('click', () => {
     let input = nameValueInput.value.trim();
     if (validateNameValuePair(input)) {
@@ -138,3 +139,6 @@ let ArraySelectedOptions = Array.from(nameValueList.selectedOptions);
     }
 
 })
+
+// Будемо відверті без допомоги ШІ я б не зробив цю КР.
+// Розумію кожну дію в коді, але самому звести все це в робочий механізм, на даному етапі, сам я не зміг би.
