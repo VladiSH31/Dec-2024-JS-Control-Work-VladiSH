@@ -1,0 +1,47 @@
+@media screen and (min-width: 481px) and (max-width: 800px) {
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .container {
+        padding-top: 20px;
+        height: 80vh;
+
+        gap: 10px;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    .input-section input {
+        width: 90%;
+    }
+
+    .input-section input::placeholder {
+        font-size: 14px;
+    }
+
+    .input-section button {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .list-section {
+        flex-direction: column;
+    }
+
+    .list-section select {
+        width: 90%;
+    }
+
+    .button-section {
+        width: 90%;
+        gap: 10px;
+    }
+
+    .button-section button {
+        font-size: 14px;
+    }
+}
