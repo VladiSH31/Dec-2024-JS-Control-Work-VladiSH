@@ -109,8 +109,8 @@ sortByValueButton.addEventListener('click', () => {
     let options = Array.from(nameValueList.children);
     options.sort((a, b) => {
 
-        let valueA = a.value.split('=')[0];
-        let valueB = b.value.split('=')[0];
+        let valueA = a.value.split('=')[1];
+        let valueB = b.value.split('=')[1];
         if (valueA > valueB) {
             return 1;
         }
