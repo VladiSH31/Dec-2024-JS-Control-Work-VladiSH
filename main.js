@@ -102,3 +102,28 @@ sortByNameButton.addEventListener('click', () => {
         nameValueList.appendChild(option)
     }
 });
+
+// Додав подію сортування за значенням
+
+sortByValueButton.addEventListener('click', () => {
+    let options = Array.from(nameValueList.children);
+    options.sort((a, b) => {
+
+        let valueA = a.value.split('=')[0];
+        let valueB = b.value.split('=')[0];
+        if (valueA > valueB) {
+            return 1;
+        }
+        if (valueA < valueB) {
+            return -1;
+        }
+        if (valueA === valueB) {
+            return 0;
+        }
+    });
+    nameValueList.innerText = '';
+
+    for (let option of options) {
+        nameValueList.appendChild(option)
+    }
+});
