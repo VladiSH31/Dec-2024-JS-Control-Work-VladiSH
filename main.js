@@ -127,3 +127,14 @@ sortByValueButton.addEventListener('click', () => {
         nameValueList.appendChild(option)
     }
 });
+
+// Кнопка видалення
+
+deleteButton.addEventListener('click', () => {
+let ArraySelectedOptions = Array.from(nameValueList.selectedOptions);
+
+    for (const selectedOption of ArraySelectedOptions) {
+        selectedOption.remove();
+    }
+
+})
